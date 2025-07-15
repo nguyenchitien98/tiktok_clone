@@ -1,5 +1,6 @@
 package com.app.tiktok.video;
 
+import com.app.tiktok.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -16,4 +17,8 @@ public class Video {
     private String description;
     private String videoUrl;
     private LocalDateTime createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }
